@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "フォームデモフィルラー",
+    "version": "1.1",
+    "description": "HTMLフォームの入力項目を解析し、デモデータを自動挿入します。",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "host_permissions": [
+      "https://api.openai.com/*"
+    ],
+    "action": {
+      "default_title": "フォームを選択",
+      "default_popup": "popup.html"
+    },
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content_script.js"]
+      }
+    ]
+  }

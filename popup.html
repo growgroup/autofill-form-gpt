@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>設定パネル</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      padding: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 12px;
+      transition: opacity 0.3s ease;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="margin-top:0;">FormGPT自動入力設定</h2>
+  <label for="apiKey">OpenAI APIキー：</label>
+  <input type="text" id="apiKey" placeholder="APIキーを入力">
+
+  <label for="language">言語選択：</label>
+  <select id="language">
+    <option value="ja">日本語</option>
+    <option value="en">英語</option>
+  </select>
+
+  <label for="additionalPrompt">追加プロンプト：</label>
+  <textarea id="additionalPrompt" rows="4" placeholder="追加の指示を���力"></textarea>
+
+  <div class="buttons" style="display: flex; justify-content: space-between;gap: 10px;">
+    <button id="save">保存</button>
+    <button id="autoFill" style="background-color: #079e3c;">フォームを自動入力</button>
+  </div>
+  
+
+  <script src="popup.js"></script>
+</body>
+</html>
