@@ -140,6 +140,7 @@ async function processForm(form) {
   // フォーム内の入力要素を取得
   const formElements = form.querySelectorAll(`
     input[type="email"],
+    input[type="number"],
     input[type="checkbox"],
     input[type="radio"],
     input[type="text"],
