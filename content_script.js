@@ -241,8 +241,10 @@ async function processForm(form) {
 
 // OpenAI APIを使用してデモデータを取得
 async function getDemoData(apiKey, fieldInfo, language, elementType, additionalPrompt) {
-  let prompt = `このプロンプトはAPI経由でchrome拡張の一部として利用しています。
+  let prompt = `# 前提
+  このプロンプトはAPI経由でchrome拡張の一部として利用しています。
   フォームのテスト送信時に、chrome拡張から各フォームの項目の情報を送信し、値のみを返してもらい、それを反映するjsを組んでいます。
+  # 詳細
   以下のフィールドに適したテストデータを提供してください。
 ・フィールド名：「${fieldInfo}」
 ・入力タイプ：「${elementType}」
@@ -254,7 +256,7 @@ async function getDemoData(apiKey, fieldInfo, language, elementType, additionalP
     prompt += `# 生成時参考情報：${additionalPrompt}`;
   }
   prompt += `# 必須ルール : 以下の事項は必ず守ってください。
-  ・デモデータのみを返してください。説明や項目名などは一切不要です。
+  ・デモデータのみを返してください。説明や項目名などは一切不要です。返すデータはinput要素などのvalue属性に入るものであることを意識してください。
   ・デモデータはフィールドの種類に適したものを返してください。
   ・デモデータは一つの値のみを返してください。【デモデータ : 】といった記載は一切不要です。
   ・送信するデータがテスト用のデモデータであることがわかりやすいようにしてください。
@@ -267,7 +269,7 @@ async function getDemoData(apiKey, fieldInfo, language, elementType, additionalP
       'Authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
-      "model": "gpt-4o-mini",
+      "model": "gpt-4o",
       "messages": [{ "role": "user", "content": prompt }],
       "max_tokens": 50,
       "temperature": 0.7

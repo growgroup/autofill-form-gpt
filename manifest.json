@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "フォームデモフィルラー",
+    "name": "フォームGPT自動入力",
     "version": "1.1",
     "description": "HTMLフォームの入力項目を解析し、デモデータを自動挿入します。",
     "permissions": ["storage", "activeTab", "scripting"],
